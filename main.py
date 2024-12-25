@@ -1,3 +1,4 @@
+import sys
 import pygame
 from constants import *
 from time import sleep
@@ -28,6 +29,10 @@ def main():
                 return
         for element in updatable:
             element.update(dt)
+        for asteroid in asteroids:
+            if asteroid.collides(player):
+                print("Game over!")
+                sys.exit()
 
         screen.fill("black")
 
